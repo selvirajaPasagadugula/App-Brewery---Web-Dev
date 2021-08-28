@@ -12,12 +12,11 @@ app.get("/", (req, res) => {
       const weatherData = JSON.parse(data);
       const temp = weatherData.main.temp;
       const description = weatherData.weather[0].description;
-      console.log(
-        "Hey! the present temperature is: " +
-          temp +
-          " and the weather seems " +
-          description
+      res.write(
+        "<h3>The temperature at Mumbai is:" + temp + " degrees Celcius.</h3>"
       );
+      res.write("<h1>The weather seems: " + description + "</h1>");
+      res.send();
       //   const object = {
       //     name: "Rajan",
       //     role: "Developer",
@@ -25,7 +24,6 @@ app.get("/", (req, res) => {
       //   console.log(JSON.stringify(object));
     });
   });
-  res.send("Server is runningggggggggggggggg!");
 });
 
 app.listen(3004, () => {
