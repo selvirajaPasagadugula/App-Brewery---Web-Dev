@@ -1,0 +1,9 @@
+API - Application Programming Interface
+   (i)End points
+   (ii)Paths
+   (iii)Parameters and
+   (iv)Authentication
+
+***https://openweathermap.org/
+***POST MAN API tool
+***https://httpstatusdogs.com/

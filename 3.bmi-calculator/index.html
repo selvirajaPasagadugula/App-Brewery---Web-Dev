@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+      #form-area > * {
+        margin: 0.5rem 0;
+      }
+
+      body {
+        background-color: #e2ffd6;
+        margin: 10rem 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      input {
+        border: 2px solid #96e673;
+        border-radius: 50px;
+        padding: 0.7rem;
+        width: 15rem;
+      }
+
+      button {
+        background-color: #fafafa;
+        border: 0;
+        padding: 0.5rem;
+        box-shadow: 0.1rem 0 0.1rem grey;
+      }
+
+      button:hover {
+        box-shadow: 0.1rem 0.1rem 0.2rem grey;
+      }
+
+      button:active {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <h1 style="color: #5db836">BMI Calculator!!!</h1>
+      <form action="/" method="post" id="form-area">
+        <input
+          type="text"
+          name="weight"
+          placeholder="Enter your Weight in KiloGrams"
+        />
+        <br />
+        <input
+          type="text"
+          name="height"
+          placeholder="Enter your Height in Metres"
+        />
+        <br />
+        <button type="submit" name="submit">Get BMI</button>
+      </form>
+    </center>
+  </body>
+</html>
