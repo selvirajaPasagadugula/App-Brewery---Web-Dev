@@ -12,16 +12,17 @@ app.get("/", (req, res) => {
       const weatherData = JSON.parse(data);
       const temp = weatherData.main.temp;
       const description = weatherData.weather[0].description;
-      res.write(
-        "<h3>The temperature at Mumbai is:" + temp + " degrees Celcius.</h3>"
+      const icon = weatherData.weather[0].icon;
+      const imgURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+      res.send(
+        "<h3>The weather seems " +
+          description +
+          "</h3><h1>The temperature of Mumbai is " +
+          temp +
+          "</h1><img src=" +
+          imgURL +
+          ">"
       );
-      res.write("<h1>The weather seems: " + description + "</h1>");
-      res.send();
-      //   const object = {
-      //     name: "Rajan",
-      //     role: "Developer",
-      //   };
-      //   console.log(JSON.stringify(object));
     });
   });
 });
