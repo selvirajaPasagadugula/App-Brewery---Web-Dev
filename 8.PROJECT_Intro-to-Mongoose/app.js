@@ -109,4 +109,27 @@ const BMW = new Vehicle({
   review: "It's an extraordinary Car!",
 });
 
-BMW.save();
+// The below line generates the exception
+// BMW.save();
+
+///////////////////// UPDATING A DOCUMENT
+DryFruit.updateOne(
+  { _id: "612cccd5a5437d1b6288835f" },
+  { name: "pista" },
+  (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successfully updated the document!");
+    }
+  }
+);
+
+//////////////////// DELETING A DOCUMENT
+Fruit.deleteOne({ _id: "612cea53dec7c25ccaf434b1" }, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Successfully delted Document!");
+  }
+});
