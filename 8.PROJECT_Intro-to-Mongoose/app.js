@@ -84,3 +84,29 @@ Fruit.find((err, fruits) => {
     });
   }
 });
+
+////////////////////////// DATA VALIDATION
+const vehicleSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [
+      true,
+      "\n***Vehicle name is Required!!! Please provide one!!!***\n",
+    ],
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10,
+  },
+  review: String,
+});
+
+const Vehicle = mongoose.model("vehicle", vehicleSchema);
+
+const BMW = new Vehicle({
+  rating: 23,
+  review: "It's an extraordinary Car!",
+});
+
+BMW.save();
