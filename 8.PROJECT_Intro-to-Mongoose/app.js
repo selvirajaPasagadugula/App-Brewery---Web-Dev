@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 //What if I want to create another DB
 mongoose.connect("mongodb://localhost:27017/fruitsDB", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 //CREATE SCHEMA FOR A COLLECTION - Fruit
@@ -41,8 +42,8 @@ const dryFruit = new DryFruit({
   review: "Wonderful Fruit!",
 });
 
-fruit.save();
-dryFruit.save();
+// fruit.save();
+// dryFruit.save();
 
 //INSERTING MULTIPLE DOCUMENTS
 const kiwi = new Fruit({
@@ -63,10 +64,23 @@ const banana = new Fruit({
   review: "Good for Health!",
 });
 
-Fruit.insertMany([kiwi, orange, banana], (err) => {
+// Fruit.insertMany([kiwi, orange, banana], (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("Successfully saved all the documents to the DB");
+//   }
+// });
+
+////////////////////////// READING FROM THE DB
+// Remember we've installed mongoose@5.13.8
+Fruit.find((err, fruits) => {
   if (err) {
     console.log(err);
   } else {
-    console.log("Successfully saved all the documents to the DB");
+    mongoose.connection.close();
+    fruits.forEach((fruit) => {
+      console.log(fruit.name);
+    });
   }
 });
